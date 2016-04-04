@@ -1,6 +1,6 @@
 <?php
 
-namespace imbalance\Http\Transformers;
+namespace FollicallyFeral\Http\Transformers;
 
 
 class GroupTransformer extends Transformer{

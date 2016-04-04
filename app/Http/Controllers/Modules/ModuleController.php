@@ -1,13 +1,13 @@
 <?php
 
-namespace imbalance\Http\Controllers\Modules;
+namespace FollicallyFeral\Http\Controllers\Modules;
 
 use Illuminate\Http\Request;
 
-use imbalance\Http\Requests;
-use imbalance\Models\Module;
-use imbalance\Http\Transformers\ModuleTransformer;
-use imbalance\Http\Controllers\Controller;
+use FollicallyFeral\Http\Requests;
+use FollicallyFeral\Models\Module;
+use FollicallyFeral\Http\Transformers\ModuleTransformer;
+use FollicallyFeral\Http\Controllers\Controller;
 
 class ModuleController extends Controller {
 

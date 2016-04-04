@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use imbalance\Models\Group;
+use FollicallyFeral\Models\Group;
 
 class GroupTableSeeder extends Seeder {
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace imbalance\Models;
+namespace FollicallyFeral\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,8 +9,8 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property string $migration
  * @property integer $batch
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\Migration whereMigration($value)
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\Migration whereBatch($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\Migration whereMigration($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\Migration whereBatch($value)
  * @mixin \Eloquent
  */
 class Migration extends Model

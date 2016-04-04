@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use imbalance\Models\Component;
+use FollicallyFeral\Models\Component;
 
 class ComponentTableSeeder extends Seeder {
 

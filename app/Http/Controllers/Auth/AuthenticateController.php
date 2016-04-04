@@ -1,19 +1,19 @@
 <?php
 
-namespace imbalance\Http\Controllers\Auth;
+namespace FollicallyFeral\Http\Controllers\Auth;
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use imbalance\Models\User;
-use imbalance\Models\UserDetail;
+use FollicallyFeral\Models\User;
+use FollicallyFeral\Models\UserDetail;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 
-use imbalance\Http\Requests;
-use imbalance\Http\Controllers\Controller;
+use FollicallyFeral\Http\Requests;
+use FollicallyFeral\Http\Controllers\Controller;
 use Tymon\JWTAuth\Exceptions\TokenExpiredException;
 use Tymon\JWTAuth\Exceptions\TokenInvalidException;
 

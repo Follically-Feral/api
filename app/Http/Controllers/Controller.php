@@ -1,6 +1,6 @@
 <?php
 
-namespace imbalance\Http\Controllers;
+namespace FollicallyFeral\Http\Controllers;
 
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Contracts\Pagination\Paginator;
@@ -12,7 +12,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 
 /**
  * Class Controller
- * @package imbalance\Http\Controllers
+ * @package FollicallyFeral\Http\Controllers
  */
 abstract class Controller extends BaseController {
 

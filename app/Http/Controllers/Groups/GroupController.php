@@ -1,28 +1,26 @@
 <?php
 
-namespace imbalance\Http\Controllers\Groups;
+namespace FollicallyFeral\Http\Controllers\Groups;
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
-use imbalance\Http\Controllers\Controller;
-use imbalance\Http\Requests;
-use imbalance\Http\Transformers\GroupTransformer;
-use imbalance\Http\Transformers\ProjectTransformer;
-use imbalance\Http\Transformers\UserDetailsTransformer;
-use imbalance\Http\Transformers\UserTransformer;
-use imbalance\Models\Group;
+use FollicallyFeral\Http\Controllers\Controller;
+use FollicallyFeral\Http\Requests;
+use FollicallyFeral\Http\Transformers\GroupTransformer;
+use FollicallyFeral\Http\Transformers\ProjectTransformer;
+use FollicallyFeral\Http\Transformers\UserDetailsTransformer;
+use FollicallyFeral\Http\Transformers\UserTransformer;
+use FollicallyFeral\Models\Group;
 
 class GroupController extends Controller {
 
     private $_userTransformer;
     private $_groupTransformer;
-    private $_projectTransformer;
 
     function __construct() {
         $this->_userTransformer = new UserTransformer();
         $this->_groupTransformer = new GroupTransformer();
-        $this->_projectTransformer = new ProjectTransformer();
     }
 
     /**
@@ -47,8 +45,7 @@ class GroupController extends Controller {
         foreach ($groups->items() as $group) {
             $groupData[$group->id] = [
                 'group' => $this->_groupTransformer->transform($group),
-                'users' => $this->_userTransformer->transformCollection($group->users->toArray()),
-                'projects' => $this->_projectTransformer->transformCollection($group->projects->toArray())
+                'users' => $this->_userTransformer->transformCollection($group->users->toArray())
             ];
         }
 
@@ -124,7 +121,6 @@ class GroupController extends Controller {
             $group->save();
 
             $group->users()->sync($request->get('users'));
-            $group->projects()->sync($request->get('projects'));
 
             return $this->respondUpdated("Group " . $group->name . " updated successfully");
         } catch (ModelNotFoundException $e) {
@@ -191,50 +187,6 @@ class GroupController extends Controller {
             $group->users()->detach($request->get('user_id'));
 
             return $this->respondUpdated("User removed from group");
-        } catch (ModelNotFoundException $e) {
-            return $this->respondNotFound("Group with ID of $id not found.");
-        }
-
-    }
-
-    /**
-     * Add a project to a group
-     *
-     * @param Request $request
-     * @param $id
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function addProjectToGroup(Request $request, $id) {
-
-        try {
-            /** @var Group $group */
-            $group = Group::findOrFail($id);
-
-            $group->projects()->attach($request->get('project_id'));
-
-            return $this->respondUpdated("Project added to group");
-        } catch (ModelNotFoundException $e) {
-            return $this->respondNotFound("Group with ID of $id not found.");
-        }
-
-    }
-
-    /**
-     * Remove a project from a group
-     *
-     * @param Request $request
-     * @param $id
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function removeProjectFromGroup(Request $request, $id) {
-
-        try {
-            /** @var Group $group */
-            $group = Group::findOrFail($id);
-
-            $group->projects()->detach($request->get('project_id'));
-
-            return $this->respondUpdated("Project removed from group");
         } catch (ModelNotFoundException $e) {
             return $this->respondNotFound("Group with ID of $id not found.");
         }

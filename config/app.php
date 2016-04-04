@@ -140,9 +140,9 @@ return [
         /*
          * Application Service Providers...
          */
-        imbalance\Providers\AppServiceProvider::class,
-        imbalance\Providers\EventServiceProvider::class,
-        imbalance\Providers\RouteServiceProvider::class,
+        FollicallyFeral\Providers\AppServiceProvider::class,
+        FollicallyFeral\Providers\EventServiceProvider::class,
+        FollicallyFeral\Providers\RouteServiceProvider::class,
 
         /*
          * IDE Helper

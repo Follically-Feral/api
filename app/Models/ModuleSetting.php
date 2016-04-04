@@ -1,6 +1,6 @@
 <?php
 
-namespace imbalance\Models;
+namespace FollicallyFeral\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,12 +12,12 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $description
  * @property string $property
  * @property integer $module_id
- * @property-read \imbalance\Models\Module $module
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\ModuleSetting whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\ModuleSetting whereName($value)
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\ModuleSetting whereDescription($value)
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\ModuleSetting whereProperty($value)
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\ModuleSetting whereModuleId($value)
+ * @property-read \FollicallyFeral\Models\Module $module
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\ModuleSetting whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\ModuleSetting whereName($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\ModuleSetting whereDescription($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\ModuleSetting whereProperty($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\ModuleSetting whereModuleId($value)
  * @mixin \Eloquent
  */
 class ModuleSetting extends Model
@@ -36,7 +36,7 @@ class ModuleSetting extends Model
     protected $guarded = [];
 
     public function module() {
-        return $this->belongsTo('imbalance\Models\Module');
+        return $this->belongsTo('FollicallyFeral\Models\Module');
     }
 
         

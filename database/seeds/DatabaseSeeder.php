@@ -8,10 +8,8 @@ class DatabaseSeeder extends Seeder
 
     private $_tableNames = [
         'user',
-        'project',
         'group',
         'group_membership',
-        'project_group',
         'module',
         'module_section',
         'component',
@@ -31,7 +29,6 @@ class DatabaseSeeder extends Seeder
 
         $this->call(UserTableSeeder::class);
         $this->call(GroupTableSeeder::class);
-        $this->call(ProjectTableSeeder::class);
         $this->call(ModuleTableSeeder::class);
         $this->call(ModuleSectionTableSeeder::class);
         $this->call(ComponentTableSeeder::class);

@@ -1,6 +1,6 @@
 <?php
 
-namespace imbalance\Events;
+namespace FollicallyFeral\Events;
 
 abstract class Event
 {

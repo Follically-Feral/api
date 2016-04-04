@@ -1,6 +1,6 @@
 <?php
 
-namespace imbalance\Models;
+namespace FollicallyFeral\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,18 +13,18 @@ use Illuminate\Database\Eloquent\Model;
  * @property boolean $delete
  * @property boolean $edit
  * @property boolean $view
- * @property-read \Illuminate\Database\Eloquent\Collection|\imbalance\Models\User[] $users
- * @property-read \Illuminate\Database\Eloquent\Collection|\imbalance\Models\Group[] $groups
- * @property-read \Illuminate\Database\Eloquent\Collection|\imbalance\Models\ModuleSection[] $moduleSections
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\Permission whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\Permission whereName($value)
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\Permission whereDescription($value)
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\Permission whereDelete($value)
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\Permission whereEdit($value)
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\Permission whereView($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\FollicallyFeral\Models\User[] $users
+ * @property-read \Illuminate\Database\Eloquent\Collection|\FollicallyFeral\Models\Group[] $groups
+ * @property-read \Illuminate\Database\Eloquent\Collection|\FollicallyFeral\Models\ModuleSection[] $moduleSections
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\Permission whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\Permission whereName($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\Permission whereDescription($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\Permission whereDelete($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\Permission whereEdit($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\Permission whereView($value)
  * @mixin \Eloquent
  * @property boolean $add
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\Permission whereAdd($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\Permission whereAdd($value)
  */
 class Permission extends Model
 {
@@ -43,15 +43,15 @@ class Permission extends Model
     protected $guarded = [];
 
     public function users() {
-        return $this->belongsToMany('imbalance\Models\User', 'permission_assignment');
+        return $this->belongsToMany('FollicallyFeral\Models\User', 'permission_assignment');
     }
 
     public function groups() {
-        return $this->belongsToMany('imbalance\Models\Group', 'permission_assignment');
+        return $this->belongsToMany('FollicallyFeral\Models\Group', 'permission_assignment');
     }
 
     public function moduleSections() {
-        return $this->belongsToMany('imbalance\Models\ModuleSection', 'module_section_access');
+        return $this->belongsToMany('FollicallyFeral\Models\ModuleSection', 'module_section_access');
     }
 
         

@@ -60,7 +60,7 @@ return [
         'providers' => [
                 'users' => [
                         'driver' => 'eloquent',
-                        'model' => imbalance\Models\User::class,
+                        'model' => FollicallyFeral\Models\User::class,
                 ],
             // 'users' => [
             //     'driver' => 'database',

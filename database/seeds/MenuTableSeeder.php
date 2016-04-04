@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use imbalance\Models\Menu;
+use FollicallyFeral\Models\Menu;
 
 class MenuTableSeeder extends Seeder {
 

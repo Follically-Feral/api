@@ -30,7 +30,7 @@ return [
     ],
 
     'stripe' => [
-        'model'  => imbalance\User::class,
+        'model'  => FollicallyFeral\User::class,
         'key'    => '',
         'secret' => '',
     ],

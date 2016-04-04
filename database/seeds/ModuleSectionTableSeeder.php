@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use imbalance\Models\ModuleSection;
+use FollicallyFeral\Models\ModuleSection;
 
 class ModuleSectionTableSeeder extends Seeder {
 

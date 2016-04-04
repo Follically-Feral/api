@@ -39,9 +39,4 @@ Route::group(array('prefix' => 'api', 'middleware' => 'jwt.auth'), function() {
     Route::resource('removeUserFromGroup', 'Groups\GroupController@removeUserFromGroup', array('only' => array('update')));
     Route::resource('addProjectToGroup', 'Groups\GroupController@addProjectToGroup', array('only' => array('update')));
     Route::resource('removeProjectFromGroup', 'Groups\GroupController@removeProjectFromGroup', array('only' => array('update')));
-
-    // Project Routes
-    Route::resource('projects', 'Projects\ProjectController', array('only' => array('index', 'store', 'show', 'update', 'destroy')));
-    Route::resource('deployProject', 'Projects\ProjectController@deployProject', array('only' => array('show')));
-    Route::resource('findProjects', 'Projects\ProjectController@findProjects', array('only' => array('show')));
 });

@@ -12,7 +12,7 @@ return [
     |
     */
 
-    'secret' => env('JWT_SECRET', 'AmrgwA7eKTJQT2PSjUgWbJAVcZmAbRoL'),
+    'secret' => env('JWT_SECRET', 'sg4QFCvJTw8YNc9e0U8P4gwodzhJWQvn'),
 
     /*
     |--------------------------------------------------------------------------
@@ -64,7 +64,7 @@ return [
     |
     */
 
-    'user' => 'imbalance\Models\User',
+    'user' => 'FollicallyFeral\Models\User',
 
     /*
     |--------------------------------------------------------------------------

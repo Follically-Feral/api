@@ -1,6 +1,6 @@
 <?php
 
-namespace imbalance\Providers;
+namespace FollicallyFeral\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace imbalance\Http;
+namespace FollicallyFeral\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -14,11 +14,11 @@ class Kernel extends HttpKernel
     protected $middleware = [
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
         'Barryvdh\Cors\HandleCors',
-//        \imbalance\Http\Middleware\EncryptCookies::class,
+//        \FollicallyFeral\Http\Middleware\EncryptCookies::class,
 //        \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
 //        \Illuminate\Session\Middleware\StartSession::class,
 //        \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-//        \imbalance\Http\Middleware\VerifyCsrfToken::class,
+//        \FollicallyFeral\Http\Middleware\VerifyCsrfToken::class,
     ];
 
     /**
@@ -27,9 +27,9 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth' => \imbalance\Http\Middleware\Authenticate::class,
+        'auth' => \FollicallyFeral\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-        'guest' => \imbalance\Http\Middleware\RedirectIfAuthenticated::class,
+        'guest' => \FollicallyFeral\Http\Middleware\RedirectIfAuthenticated::class,
         'jwt.auth' => \Tymon\JWTAuth\Middleware\GetUserFromToken::class,
         'jwt.refresh' => \Tymon\JWTAuth\Middleware\RefreshToken::class,
     ];

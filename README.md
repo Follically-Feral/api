@@ -1,4 +1,4 @@
-# Laravel Imbalance Project
+# Laravel Follically Feral Project
 
 ## Description
 A REST API to allow frontend frameworks such as angular to use services provided.
@@ -13,7 +13,7 @@ A REST API to allow frontend frameworks such as angular to use services provided
 
 ## Installation
 1. Clone the repository to the desired location.
-2. Run **_composer update_** to pull down components into the vendor folder.
+2. Run **_composer install_** to pull down components into the vendor folder.
 3. Set storage and bootstrap/cache folders to be publicly read/write/executable **_sudo chmod -R 777 <folder name>_**.
 4. Take a copy of the .env.save file and name it .env **_sudo cp .env.save .env_**, this file contains all configuration options for laravel.
 5. Run the **_php artisan key:generate_** command to get a new application key, this should then be set in your .env file if it is not then set it.
@@ -24,6 +24,12 @@ A REST API to allow frontend frameworks such as angular to use services provided
 10. You can also do a sudo tail -f /var/log/apahce2/error.log to see if there are errors.
 
 App still not working? See laravel docs, turn on debug in the .env file and google search any errors you see.
+
+## Database Migration and Seed
+1. Run **_php artisan migrate_** to create the database tables
+2. Alter the UserTableSeeder.php if you wish to have your own admin user
+3. Alter any other of the seeders to match what you need
+4. Run **_php artisan db:seed_** to seed the database with entries
 
 ## Live Install
 1. In .env change APP_ENV to production and APP_DEBUG to false.

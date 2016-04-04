@@ -1,6 +1,6 @@
 <?php
 
-namespace imbalance\Http\Middleware;
+namespace FollicallyFeral\Http\Middleware;
 
 use Closure;
 

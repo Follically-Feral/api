@@ -1,6 +1,6 @@
 <?php
 
-namespace imbalance\Models;
+namespace FollicallyFeral\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,11 +11,11 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $name
  * @property string $description
  * @property integer $user_id
- * @property-read \imbalance\Models\User $user
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\UserBoard whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\UserBoard whereName($value)
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\UserBoard whereDescription($value)
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\UserBoard whereUserId($value)
+ * @property-read \FollicallyFeral\Models\User $user
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\UserBoard whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\UserBoard whereName($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\UserBoard whereDescription($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\UserBoard whereUserId($value)
  * @mixin \Eloquent
  */
 class UserBoard extends Model
@@ -33,7 +33,7 @@ class UserBoard extends Model
     protected $guarded = [];
 
     public function user() {
-        return $this->belongsTo('imbalance\Models\user');
+        return $this->belongsTo('FollicallyFeral\Models\user');
     }
 
         

@@ -1,6 +1,6 @@
 <?php
 
-namespace imbalance\Console;
+namespace FollicallyFeral\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        \imbalance\Console\Commands\Inspire::class,
+        \FollicallyFeral\Console\Commands\Inspire::class,
     ];
 
     /**

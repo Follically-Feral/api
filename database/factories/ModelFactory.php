@@ -11,7 +11,7 @@
 |
 */
 
-$factory->define(imbalance\Models\User::class, function (Faker\Generator $faker) {
+$factory->define(FollicallyFeral\Models\User::class, function (Faker\Generator $faker) {
 
     $username = $faker->userName;
     $password = $faker->password();
@@ -33,17 +33,3 @@ $factory->define(imbalance\Models\User::class, function (Faker\Generator $faker)
 
 });
 
-$factory->define(imbalance\Models\Project::class, function (Faker\Generator $faker) {
-
-    $name = $faker->word;
-    
-    return [
-        'key'=>ucfirst(substr($name, 0, 1)),
-        'name'=>ucfirst($name),
-        'description'=>$faker->sentence,
-        'status'=>'Development',
-        'git_url'=>'test.com',
-        'user_id'=>null
-    ];
-
-});

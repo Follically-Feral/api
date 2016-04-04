@@ -1,6 +1,6 @@
 <?php
 
-namespace imbalance\Models;
+namespace FollicallyFeral\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,16 +11,16 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $name
  * @property string $link
  * @property integer $menu_sub_section_id
- * @property-read \imbalance\Models\MenuSubSection $menuSubSection
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\MenuSubSectionItem whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\MenuSubSectionItem whereName($value)
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\MenuSubSectionItem whereLink($value)
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\MenuSubSectionItem whereMenuSubSectionId($value)
+ * @property-read \FollicallyFeral\Models\MenuSubSection $menuSubSection
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\MenuSubSectionItem whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\MenuSubSectionItem whereName($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\MenuSubSectionItem whereLink($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\MenuSubSectionItem whereMenuSubSectionId($value)
  * @mixin \Eloquent
  * @property string $component
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\MenuSubSectionItem whereComponent($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\MenuSubSectionItem whereComponent($value)
  * @property integer $component_id
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\MenuSubSectionItem whereComponentId($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\MenuSubSectionItem whereComponentId($value)
  */
 class MenuSubSectionItem extends Model
 {
@@ -37,11 +37,11 @@ class MenuSubSectionItem extends Model
     protected $guarded = [];
 
     public function menuSubSection() {
-        return $this->belongsTo('imbalance\Models\MenuSubSection');
+        return $this->belongsTo('FollicallyFeral\Models\MenuSubSection');
     }
 
     public function component() {
-        return $this->belongsTo('imbalance\Models\Component');
+        return $this->belongsTo('FollicallyFeral\Models\Component');
     }
 
         

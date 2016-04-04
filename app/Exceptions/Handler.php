@@ -1,6 +1,6 @@
 <?php
 
-namespace imbalance\Exceptions;
+namespace FollicallyFeral\Exceptions;
 
 use Exception;
 use Symfony\Component\HttpKernel\Exception\HttpException;

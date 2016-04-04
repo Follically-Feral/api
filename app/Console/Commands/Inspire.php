@@ -1,6 +1,6 @@
 <?php
 
-namespace imbalance\Console\Commands;
+namespace FollicallyFeral\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Inspiring;

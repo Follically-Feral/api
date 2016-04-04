@@ -1,7 +1,7 @@
 {
-    "name": "Imbalance API",
+    "name": "Follically Feral API",
     "description": "A REST API to allow frontend frameworks such as angular to use services provided.",
-    "keywords": ["framework", "laravel", "Imbalance", "Gaming"],
+    "keywords": ["framework", "laravel", "Follically", "Feral"],
     "license": "GPL-3.0",
     "type": "project",
     "require": {
@@ -26,7 +26,7 @@
             "database"
         ],
         "psr-4": {
-            "imbalance\\": "app/"
+            "FollicallyFeral\\": "app/"
         }
     },
     "autoload-dev": {

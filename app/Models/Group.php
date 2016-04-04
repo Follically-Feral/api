@@ -1,6 +1,6 @@
 <?php
 
-namespace imbalance\Models;
+namespace FollicallyFeral\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,12 +10,12 @@ use Illuminate\Database\Eloquent\Model;
  * @property integer $id
  * @property string $name
  * @property string $description
- * @property-read \Illuminate\Database\Eloquent\Collection|\imbalance\Models\Project[] $projects
- * @property-read \Illuminate\Database\Eloquent\Collection|\imbalance\Models\User[] $users
- * @property-read \Illuminate\Database\Eloquent\Collection|\imbalance\Models\Permission[] $permissions
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\Group whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\Group whereName($value)
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\Group whereDescription($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\FollicallyFeral\Models\Project[] $projects
+ * @property-read \Illuminate\Database\Eloquent\Collection|\FollicallyFeral\Models\User[] $users
+ * @property-read \Illuminate\Database\Eloquent\Collection|\FollicallyFeral\Models\Permission[] $permissions
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\Group whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\Group whereName($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\Group whereDescription($value)
  * @mixin \Eloquent
  */
 class Group extends Model
@@ -31,16 +31,12 @@ class Group extends Model
 
     protected $guarded = [];
 
-    public function projects() {
-        return $this->belongsToMany('imbalance\Models\Project', 'project_group');
-    }
-
     public function users() {
-        return $this->belongsToMany('imbalance\Models\User', 'group_membership');
+        return $this->belongsToMany('FollicallyFeral\Models\User', 'group_membership');
     }
 
     public function permissions() {
-        return $this->belongsToMany('imbalance\Models\Permission', 'permission_assignment');
+        return $this->belongsToMany('FollicallyFeral\Models\Permission', 'permission_assignment');
     }
         
 }

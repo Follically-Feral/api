@@ -1,6 +1,6 @@
 <?php
 
-namespace imbalance\Jobs;
+namespace FollicallyFeral\Jobs;
 
 use Illuminate\Bus\Queueable;
 

@@ -2,7 +2,7 @@
 
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
-use imbalance\Models\User;
+use FollicallyFeral\Models\User;
 
 class UserTableSeeder extends Seeder {
 
@@ -43,7 +43,7 @@ class UserTableSeeder extends Seeder {
 
         print "Email: ".$user->email." Password: ".$password."\n";
 
-        factory(\imbalance\Models\User::class, 30)->create()->each(function(\imbalance\Models\User $u) {
+        factory(\FollicallyFeral\Models\User::class, 30)->create()->each(function(\FollicallyFeral\Models\User $u) {
             print "Email: ".$u->email."\n";
         });
 

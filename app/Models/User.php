@@ -1,6 +1,6 @@
 <?php
 
-namespace imbalance\Models;
+namespace FollicallyFeral\Models;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -11,7 +11,7 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
 
 /**
- * imbalance\Models\User
+ * FollicallyFeral\Models\User
  *
  * @property integer $id
  * @property string $username
@@ -32,28 +32,28 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
  * @property string $facebook
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\imbalance\Models\Project[] $projects
- * @property-read \Illuminate\Database\Eloquent\Collection|\imbalance\Models\UserBoard[] $userBoards
- * @property-read \Illuminate\Database\Eloquent\Collection|\imbalance\Models\Permission[] $permissions
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\User whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\User whereUsername($value)
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\User wherePassword($value)
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\User whereEmail($value)
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\User whereRole($value)
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\User whereEmailVerified($value)
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\User whereEmailVerifiedCode($value)
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\User whereActive($value)
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\User whereLastLogin($value)
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\User whereForename($value)
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\User whereSurname($value)
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\User whereDob($value)
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\User whereCountry($value)
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\User whereWebsite($value)
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\User whereAvatar($value)
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\User whereTwitterUsername($value)
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\User whereFacebook($value)
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\User whereCreatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\imbalance\Models\User whereUpdatedAt($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\FollicallyFeral\Models\Project[] $projects
+ * @property-read \Illuminate\Database\Eloquent\Collection|\FollicallyFeral\Models\UserBoard[] $userBoards
+ * @property-read \Illuminate\Database\Eloquent\Collection|\FollicallyFeral\Models\Permission[] $permissions
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\User whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\User whereUsername($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\User wherePassword($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\User whereEmail($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\User whereRole($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\User whereEmailVerified($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\User whereEmailVerifiedCode($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\User whereActive($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\User whereLastLogin($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\User whereForename($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\User whereSurname($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\User whereDob($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\User whereCountry($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\User whereWebsite($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\User whereAvatar($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\User whereTwitterUsername($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\User whereFacebook($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\User whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\User whereUpdatedAt($value)
  * @mixin \Eloquent
  */
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract
@@ -83,21 +83,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     // Model relation functions
 
-    /**
-     * Get collection of projects that this user is a lead for
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function projects() {
-        return $this->hasMany('imbalance\Models\Project');
-    }
-
     public function userBoards() {
-        return $this->hasMany('imbalance\Models\UserBoard');
+        return $this->hasMany('FollicallyFeral\Models\UserBoard');
     }
 
     public function permissions() {
-        return $this->belongsToMany('imbalance\Models\Permission', 'permission_assignment');
+        return $this->belongsToMany('FollicallyFeral\Models\Permission', 'permission_assignment');
     }
 
 }

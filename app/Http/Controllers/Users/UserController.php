@@ -1,16 +1,16 @@
 <?php
 
-namespace imbalance\Http\Controllers\Users;
+namespace FollicallyFeral\Http\Controllers\Users;
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
-use imbalance\Http\Transformers\UserDetailsTransformer;
-use imbalance\Http\Transformers\UserTransformer;
-use imbalance\Models\User;
-use imbalance\Models\UserDetail;
+use FollicallyFeral\Http\Transformers\UserDetailsTransformer;
+use FollicallyFeral\Http\Transformers\UserTransformer;
+use FollicallyFeral\Models\User;
+use FollicallyFeral\Models\UserDetail;
 
 use Illuminate\Http\Request;
-use imbalance\Http\Controllers\Controller;
+use FollicallyFeral\Http\Controllers\Controller;
 use PhpParser\Comment;
 use Validator;
 
