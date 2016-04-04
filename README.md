@@ -56,6 +56,7 @@ for the token based authO system.
 * **_php artisan routes_** shows apps current routes.
 * **_php artisan clear-compiled_** clears complied classes, useful if you just added a new controller.
 * **_php artisan optimize_** does the opposite of above.
+* **_php artisan make:models_** build models from existing database schema.
 
 ## Resources
 * [Laravel docs](http://laravel.com/docs/5.1)
