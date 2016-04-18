@@ -1,52 +1,29 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Eloquent\Model;
 
 class DatabaseSeeder extends Seeder
 {
-
-    private $_tableNames = [
-        'user',
-        'group',
-        'group_membership',
-        'module',
-        'module_section',
-        'component',
-        'menu'
-    ];
-
     /**
      * Run the database seeds.
      *
      * @return void
      */
-    public function run() {
-
-        $this->cleanDatabase();
-
-        Model::unguard();
-
+    public function run()
+    {
         $this->call(UserTableSeeder::class);
-        $this->call(GroupTableSeeder::class);
-        $this->call(ModuleTableSeeder::class);
-        $this->call(ModuleSectionTableSeeder::class);
-        $this->call(ComponentTableSeeder::class);
-        $this->call(MenuTableSeeder::class);
-
-        Model::reguard();
-
-    }
-
-    public function cleanDatabase() {
-
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-
-        foreach ($this->_tableNames as $tableName) {
-            DB::table($tableName)->truncate();
-        }
-
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
-
+        $this->call(BasketSeeder::class);
+        $this->call(BusinessInformationSeeder::class);
+        $this->call(CategorySeeder::class);
+        $this->call(GroupsSeeder::class);
+        $this->call(IngredientSeeder::class);
+        $this->call(ModuleSeeder::class);
+        $this->call(NewsSeeder::class);
+        $this->call(OrderSeeder::class);
+        $this->call(PermissionSeeder::class);
+        $this->call(PhotoSeeder::class);
+        $this->call(ProductSeeder::class);
+        $this->call(RoleSeeder::class);
+        $this->call(WeightSeeder::class);
     }
 }
