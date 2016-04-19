@@ -25,23 +25,22 @@ Route::group(array('prefix' => 'api'), function() {
 
     // Test routes turn off when not needed
 //    Route::resource('projects', 'Projects\ProjectController', array('only' => array('index', 'store', 'show', 'update', 'destroy')));
+//    Route::resource('findPermissionsForUser', 'Users\UserController@findPermissionsForUser', array('only' => array('show')));
+
 });
 
 Route::group(array('prefix' => 'api', 'middleware' => 'jwt.auth'), function() {
     // User Routes
-    Route::resource('groups', 'Groups\GroupController', array('only' => array('index', 'store', 'show', 'update', 'destroy')));
-    Route::resource('addUserToGroup', 'Groups\GroupController@addUserToGroup', array('only' => array('update')));
-    Route::resource('removeUserFromGroup', 'Groups\GroupController@removeUserFromGroup', array('only' => array('update')));
-    Route::resource('addProjectToGroup', 'Groups\GroupController@addProjectToGroup', array('only' => array('update')));
-    Route::resource('removeProjectFromGroup', 'Groups\GroupController@removeProjectFromGroup', array('only' => array('update')));
-    Route::resource('findGroups', 'Groups\GroupController@findGroups', array('only' => array('show')));
+    Route::resource('users', 'Users\UserController', array('only' => array('index', 'store', 'show', 'update', 'destroy')));
+    Route::resource('setActiveStatus', 'Users\UserController@setActiveStatus', array('only' => array('update')));
+    Route::resource('findUsers', 'Users\UserController@findUsers', array('only' => array('show')));
+    Route::resource('findPermissionsForUser', 'Users\UserController@findPermissionsForUser', array('only' => array('show')));
 
     // Group Routes
     Route::resource('groups', 'Groups\GroupController', array('only' => array('index', 'store', 'show', 'update', 'destroy')));
     Route::resource('addUserToGroup', 'Groups\GroupController@addUserToGroup', array('only' => array('update')));
     Route::resource('removeUserFromGroup', 'Groups\GroupController@removeUserFromGroup', array('only' => array('update')));
-    Route::resource('addProjectToGroup', 'Groups\GroupController@addProjectToGroup', array('only' => array('update')));
-    Route::resource('removeProjectFromGroup', 'Groups\GroupController@removeProjectFromGroup', array('only' => array('update')));
+    Route::resource('findGroups', 'Groups\GroupController@findGroups', array('only' => array('show')));
 
     //Module Routes
     Route::resource('modules', 'Modules\ModuleController', array('only' => array('index', 'store', 'show', 'update', 'destroy')));

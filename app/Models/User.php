@@ -8,8 +8,6 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
-
-
 /**
  * FollicallyFeral\Models\User
  *
@@ -81,6 +79,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public function permissions() {
         return $this->belongsToMany('FollicallyFeral\Models\Permission', 'permission_assignment');
+    }
+
+    public function groups() {
+        return $this->belongsToMany('FollicallyFeral\Models\Group', 'group_membership');
     }
 
 }
