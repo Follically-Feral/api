@@ -47,8 +47,8 @@ class AuthenticateController extends Controller
             $user->userDetail()->save($userDetail);
 
             \Mail::send('email.reg', ['userId'=>$user->id],function($message) use ($user) {
-               $message->subject('Please activate your account for Imbalance Gaming')
-                   ->from('imbalanceAdmin@imbalancegaming.com')
+               $message->subject('Please activate your account for Follically Feral')
+                   ->from('follicallyAdmin@follicallyferla.co.uk')
                    ->to($user->email);
             });
 

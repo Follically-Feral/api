@@ -17,14 +17,6 @@ class ModuleSectionTableSeeder extends Seeder {
         print "Module Section: ".$moduleSection->name."\n";
 
         $moduleSection = ModuleSection::create([
-            "name"=>'Projects',
-            "description"=>'Functionality for managing projects',
-            "module_id"=>1
-        ]);
-
-        print "Module Section: ".$moduleSection->name."\n";
-
-        $moduleSection = ModuleSection::create([
             "name"=>'Modules',
             "description"=>'Functionality for managing modules',
             "module_id"=>1

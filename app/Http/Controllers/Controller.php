@@ -122,6 +122,14 @@ abstract class Controller extends BaseController {
         return $this->setStatusCode(IlluminateResponse::HTTP_INTERNAL_SERVER_ERROR)->respondWithError($message);
     }
 
+    /**
+     * @param string $message
+     * @return JsonResponse
+     */
+    protected function updateError($message) {
+        return $this->setStatusCode(IlluminateResponse::HTTP_NOT_ACCEPTABLE)->respondWithError($message);
+    }
+
     // Success
 
     /**

@@ -2,24 +2,32 @@
 
 namespace FollicallyFeral\Http\Controllers\Users;
 
+use FollicallyFeral\Http\Transformers\GroupTransformer;
+use FollicallyFeral\Http\Transformers\ModuleSectionTransformer;
+use FollicallyFeral\Http\Transformers\PermissionTransformer;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
-use FollicallyFeral\Http\Transformers\UserDetailsTransformer;
 use FollicallyFeral\Http\Transformers\UserTransformer;
 use FollicallyFeral\Models\User;
-use FollicallyFeral\Models\UserDetail;
 
 use Illuminate\Http\Request;
 use FollicallyFeral\Http\Controllers\Controller;
 use PhpParser\Comment;
-use Validator;
 
 class UserController extends Controller {
 
     private $_userTransformer;
+    private $_groupTransformer;
+    private $_permissionTransformer;
+    private $_moduleSectionTransformer;
 
     function __construct() {
+
         $this->_userTransformer = new UserTransformer();
+        $this->_groupTransformer = new GroupTransformer();
+        $this->_permissionTransformer = new PermissionTransformer();
+        $this->_moduleSectionTransformer = new ModuleSectionTransformer();
+
     }
 
     /**
@@ -78,8 +86,8 @@ class UserController extends Controller {
                 'email' => $user->email,
                 'password' => $password
             ], function ($message) use ($user) {
-                $message->subject('Account created @ Imbalance Gaming')
-                    ->from('imbalanceAdmin@imbalancegaming.com')
+                $message->subject('Account created @ Follically Feral')
+                    ->from('follicallyAdmin@follicallyferla.co.uk')
                     ->to($user->email);
             });
 
@@ -205,5 +213,34 @@ class UserController extends Controller {
 
     }
 
+    /**
+     * Find all permissions assigned to the user and what sections those permissions relate to.
+     *
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function findPermissionsForUser($id) {
+
+        $user = User::with('groups.permissions.moduleSections', 'permissions.moduleSections')->whereId($id)->get();
+
+        $permissions = [];
+
+        foreach ($user[0]['permissions'] as $permissionKey => $permission) {
+            $permissionMid = $this->_permissionTransformer->transform($permission);
+            $permissionMid['module_sections'] = $this->_moduleSectionTransformer->transformCollection($permission['modulesections']->toArray());
+            array_push($permissions, $permissionMid);
+        }
+
+        foreach ($user[0]['groups'] as $groupKey => $group) {
+            foreach ($group['permissions'] as $permissionKey => $permission) {
+                $permissionMid = $this->_permissionTransformer->transform($permission);
+                $permissionMid['module_sections'] = $this->_moduleSectionTransformer->transformCollection($permission['modulesections']->toArray());
+                array_push($permissions, $permissionMid);
+            }
+        }
+
+        return $this->respond($permissions);
+
+    }
 
 }

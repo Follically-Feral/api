@@ -23,22 +23,6 @@ class ModuleTableSeeder extends Seeder {
 
         print "Module: ".$module->name."\n";
 
-        $module = Module::create([
-            "key"=>'GM',
-            "name"=>'Git Module',
-            "description"=>'Git module for Imbalance Gaming site'
-        ]);
-
-        print "Module: ".$module->name."\n";
-
-        $module = Module::create([
-            "key"=>'AM',
-            "name"=>'Agile Module',
-            "description"=>'Agile module for Imbalance Gaming site'
-        ]);
-
-        print "Module: ".$module->name."\n";
-
     }
 
 }

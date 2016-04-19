@@ -32,8 +32,6 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
  * @property string $facebook
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\FollicallyFeral\Models\Project[] $projects
- * @property-read \Illuminate\Database\Eloquent\Collection|\FollicallyFeral\Models\UserBoard[] $userBoards
  * @property-read \Illuminate\Database\Eloquent\Collection|\FollicallyFeral\Models\Permission[] $permissions
  * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\User whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\FollicallyFeral\Models\User whereUsername($value)
@@ -80,12 +78,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
-
-    // Model relation functions
-
-    public function userBoards() {
-        return $this->hasMany('FollicallyFeral\Models\UserBoard');
-    }
 
     public function permissions() {
         return $this->belongsToMany('FollicallyFeral\Models\Permission', 'permission_assignment');

@@ -8,8 +8,6 @@ use Illuminate\Http\Request;
 use FollicallyFeral\Http\Controllers\Controller;
 use FollicallyFeral\Http\Requests;
 use FollicallyFeral\Http\Transformers\GroupTransformer;
-use FollicallyFeral\Http\Transformers\ProjectTransformer;
-use FollicallyFeral\Http\Transformers\UserDetailsTransformer;
 use FollicallyFeral\Http\Transformers\UserTransformer;
 use FollicallyFeral\Models\Group;
 
@@ -145,6 +143,26 @@ class GroupController extends Controller {
             return $this->respondDeleted("Group " . $group->name . " deleted");
         } catch (ModelNotFoundException $e) {
             return $this->respondNotFound("Group with ID of $id not found.");
+        }
+
+    }
+
+    /**
+     * Find groups from given search term
+     *
+     * @param $searchTerm
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function findGroups($searchTerm) {
+
+        if ($searchTerm) {
+            $groups = Group::where('name', 'LIKE', "%$searchTerm%")->get();
+
+            return $this->respond([
+                'data' => $this->_groupTransformer->transformCollection($groups->toArray())
+            ]);
+        } else {
+            return $this->respond([]);
         }
 
     }

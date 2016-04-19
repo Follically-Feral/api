@@ -14,13 +14,6 @@ class GroupTableSeeder extends Seeder {
 
         print "Group: ".$group->name."\n";
 
-        $group = Group::create([
-            'name'=>'Developers',
-            'description'=>'Users who will be developing applications for hosting on the site'
-        ]);
-
-        print "Group: ".$group->name."\n";
-
         /** @var Group $group */
         $group = Group::create([
             'name'=>'Admins',
@@ -31,6 +24,7 @@ class GroupTableSeeder extends Seeder {
 
         $group->users()->attach(1);
         $group->users()->attach(2);
+        $group->users()->attach(3);
 
     }
 
